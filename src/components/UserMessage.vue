@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <<router-link to="/loginPage">
+    <router-link to="/loginPage">
       <div class="header_menu">登录</div>
     </router-link>
   </div>
