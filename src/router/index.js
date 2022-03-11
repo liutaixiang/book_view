@@ -10,8 +10,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      component: resolve => require(['../pages/index'], resolve),
+      meta: {
+        title: 'home'
+      }
     }
   ]
 })
