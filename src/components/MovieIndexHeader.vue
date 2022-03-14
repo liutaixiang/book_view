@@ -24,10 +24,10 @@
     top: 0;
     color: #000;
     background-color: #a5a5a5;
-    border-bottpm: 2px solid #000;
+    border-bottom: 2px solid #000;
   }
   .header_menu {
-    padding=left: 60px;
+    padding-left: 60px;
     padding-top: 20px;
     float: left;
     color: #fff;

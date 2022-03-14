@@ -5,6 +5,10 @@ import HelloWorld from '@/components/HelloWorld'
 
 import MovieList from '../pages/movieList.vue'
 import MovieDetail from '../pages/movieDetail.vue'
+import LoginPage from '../pages/loginPage.vue'
+import RegisterPage from '../pages/registerPage.vue'
+import FindPasswordPage from '../pages/findPasswordPage.vue'
+import UserInfo from '../pages/userInfo.vue'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -25,6 +29,22 @@ export default new Router({
     {
       path: '/movieDetail',
       component: MovieDetail
+    },
+    {
+      path: '/loginPage',
+      component: LoginPage
+    },
+    {
+      path: '/register',
+      component: RegisterPage
+    },
+    {
+      path:'/findPassword',
+      component: FindPasswordPage
+    },
+    {
+      path: '/userInfo',
+      component: UserInfo
     }
   ]
 })
