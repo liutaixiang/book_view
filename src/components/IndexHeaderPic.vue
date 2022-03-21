@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="headerPic">
     <div>
-      <p class="imgTitle">{{ recommendTitle }}</p>
-      <a href="baidu.com">
-        <img src="图片地址" class="headerImg">
+      <p class="imgTitle">{{recommendTitle}}</p>
+      <a v-bind:href="recommendSrc">
+        <img v-bind:src="recommendImg" class="headerImg">
       </a>
     </div>
   </div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-
+  props: ['recommendSrc', 'recommendImg', 'recommendTitle']
 };
 </script>
 

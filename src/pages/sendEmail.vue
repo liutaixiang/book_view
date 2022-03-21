@@ -8,11 +8,11 @@
     </div>
     <label>收件箱</label>
     <div>
-      <email-list></email-list>
+      <email-list v-for="item in receive_items" :title="item.title" :fromUser="item.fromUser" :context="item.context"></email-list>
     </div>
     <label>发件箱</label>
     <div>
-      <email-list></email-list>
+      <email-list v-for="item in send_items" :title="item.title" :fromUser="item.fromUser" :context="item.context"></email-list>
     </div>
     <send-talk-box></send-talk-box>
     <common-footer></common-footer>
@@ -32,6 +32,43 @@ export default {
     UserMessage,
     EmailList,
     SendTalkBox
+  },
+  data() {
+    return {
+      receive_items: [],
+      send_items: [],
+      detail: []
+    }
+  },
+  created() {
+    let userId = localStorage._id;
+    let send_data = {
+      token: localStorage.token,
+      user_id: userId,
+      receive: 0
+    }
+    let receive_data = {
+      token: localStorage.token,
+      user_id: userId,
+      receive: 1
+    }
+    if (userId) {
+      this.$http.post('http://localhost:3000/users/showEmail', send_data).then((data) => {
+        if (data.body.status == 1) {
+          alert(data.body.message);
+        } else {
+          this.send_items = data.body.data;
+        }
+      })
+
+      this.$http.post('http://localhost:3000/users/showEmail', receive_data).then((data) => {
+        if (data.body.status == 1) {
+          alert(data.body.message);
+        } else {
+          this.receive_items = data.body.data;
+        }
+      })
+    }
   }
 };
 </script>

@@ -1,16 +1,16 @@
 <template lang="html">
   <div class="message">
-    <div>题目</div>
+    <div>{{title}}</div>
 
-    <div>来源用户</div>
+    <div>{{fromUser}}</div>
 
-    <div>一条的内容</div>
+    <div>{{context}}</div>
   </div>
 </template>
 
 <script>
 export default {
-
+  props: ['title', 'fromUser', 'context']
 };
 </script>
 

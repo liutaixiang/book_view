@@ -7,20 +7,23 @@
       <user-message></user-message>
     </div>
     <div class="contentPic">
-      <index-header-pic></index-header-pic>
+      <index-header-pic v-for="item in headerItems" :key="item._id" :recommendImg="item.recommendImg"
+      :recommendSrc="item.recommendSrc" :recommendTitle="item.recommendTitle"></index-header-pic>
     </div>
     <div class="contentMain">
       <div>
         <div class="contentLeft">
           <ul class="cont-ul">
-            <movies-list></movies-list>
+            <movies-list v-for="item in movieItems" :key="item._id" :id="item._id" :movieName="item.movieName"
+            :movieTime="item.movieTime"></movies-list>
           </ul>
         </div>
       </div>
       <div>
         <div class="contentRight">
           <ul class="cont-ul">
-            <news-list></news-list>
+            <news-list v-for="item in newsItems" :key="item._id" :id="item._id" :articleTitle="item.articleTitle"
+            :articleTime="item.articleTime"></news-list>
           </ul>
         </div>
       </div>
@@ -38,7 +41,27 @@ import IndexHeaderPic from '../components/IndexHeaderPic'
 import UserMessage from '../components/UserMessage'
 export default {
   data () {
+    return {
+      headerItems: [],
+      newsItems: [],
+      movieItems: []
+    }
+  },
+  created() {
+    this.$http.get('http://localhost:3000/showIndex').then((data) => {
+      this.headerItems = data.body.data;
+      console.log(data);
+    })
 
+    this.$http.get('http://localhost:3000/showArticle').then((data) => {
+      this.newsItems = data.body.data;
+      console.log(data);
+    })
+
+    this.$http.get('http://localhost:3000/showRanking').then((data) => {
+      this.movieItems = data.body.data;
+      console.log(data);
+    })
   },
   components: {
     MovieIndexHeader,

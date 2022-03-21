@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="movieList">
     <div>
-      <router-link :to="{ name: '', params: {} }" class="goods-list-link">
-        电影名称。。。
+      <router-link :to="{ path: '/movieDetail', query: { id: id} }" class="goods-list-link">
+        {{movieName}}{{movieTimeShow}}
       </router-link>
     </div>
   </div>
@@ -10,7 +10,15 @@
 
 <script>
 export default {
-
+  data () {
+    return {
+      movieTimeShow: ''
+    }
+  },
+  props: ['id', 'movieName', 'movieTime'],
+  created() {
+    this.movieTimeShow = new Date(parseInt(this.movieTime)).toLocaleString().replace(/: \d{1, 2}$/, ' ');
+  }
 };
 </script>
 

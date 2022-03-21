@@ -16,7 +16,7 @@
 </script>
 
 <style scoped>
-  .header {
+  /* .header {
     width: 100%;
     height: 60px;
     position: fixed;
@@ -31,5 +31,5 @@
     padding-top: 20px;
     float: left;
     color: #fff;
-  }
+  } */
 </style>

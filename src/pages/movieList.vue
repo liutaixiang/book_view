@@ -7,7 +7,8 @@
       <div>
         <div class="contentLeft">
           <ul class="cont-ul">
-            <movies-list></movies-list>
+            <movies-list v-for="item in movieItems" :key="item._id" :id="item._id" :movieName="item.movieName"
+            :movieTime="item.movieTime"></movies-list>
           </ul>
         </div>
       </div>
@@ -27,6 +28,17 @@ export default {
     MovieIndexHeader,
     CommonFooter,
     MoviesList
+  },
+  data() {
+    return {
+      movieItems: []
+    }
+  },
+  created() {
+    this.$http.get('http://localhost:3000/movie/list').then((data) => {
+      this.movieItems = data.body.data;
+      console.log(data);
+    })
   }
 };
 </script>
