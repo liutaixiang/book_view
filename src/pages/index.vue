@@ -11,22 +11,30 @@
       :recommendSrc="item.recommendSrc" :recommendTitle="item.recommendTitle"></index-header-pic>
     </div>
     <div class="contentMain">
-      <div>
-        <div class="contentLeft">
-          <ul class="cont-ul">
-            <movies-list v-for="item in movieItems" :key="item._id" :id="item._id" :movieName="item.movieName"
-            :movieTime="item.movieTime"></movies-list>
-          </ul>
-        </div>
-      </div>
-      <div>
-        <div class="contentRight">
-          <ul class="cont-ul">
-            <news-list v-for="item in newsItems" :key="item._id" :id="item._id" :articleTitle="item.articleTitle"
-            :articleTime="item.articleTime"></news-list>
-          </ul>
-        </div>
-      </div>
+      <Row>
+        <i-col span="11" offset="1">
+          <Card>
+            <p slot="title">
+              <Icon type="ios-film-outline"></Icon>电影
+            </p>
+            <ul class="cont-ul">
+              <movies-list v-for="item in movieItems" :key="item._id" :id="item._id" :movieName="item.movieName"
+              :movieTime="item.movieTime"></movies-list>
+            </ul>
+          </Card>
+        </i-col>
+        <i-col span="10" offset="1">
+          <Card>
+            <p slot="title">
+              <Icon type="edit"></Icon>新闻
+            </p>
+            <ul class="cont-ul">
+              <news-list v-for="item in newsItems" :key="item._id" :id="item._id" :articleTitle="item.articleTitle"
+              :articleTime="item.articleTime"></news-list>
+            </ul>
+          </Card>
+        </i-col>
+      </Row>
     </div>
     <common-footer></common-footer>
   </div>

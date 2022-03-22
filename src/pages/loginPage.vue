@@ -1,23 +1,25 @@
 <template lang="html">
-  <div class="">
-    <div>
-      <div>
+  <div>
+    <div class="box">
+      <div style="width: 30%; padding-top: 10%">
+        <label>LOGIN</label>
         <div>
-          <div class="box">
-            <label>输入用户名：</label>
-            <input v-model="username" placeholder="用户名">
-          </div>
-          <div class="box">
-            <label>密码：</label>
-            <input v-model="password" placeholder="密码">
-          </div>
-          <div class="box">
-            <button v-on:click="userLogin()">登录</button>
-            <button v-on:click="userRegister()" style="margin-left: 10px">注册</button>
-            <button v-on:click="findBackPassword()" style="margin-left: 10px">忘记密码</button>
-          </div>
+          <i-input type="text" v-model="username" placeholder="用户名">
+            <Icon type="ios-person-outline" slot="prepend"></Icon>
+          </i-input>
+        </div>
+        <div class="box">
+          <i-input type="password" v-model="password" placeholder="密码">
+            <Icon type="ios-locked-outline" slot="prepend"></Icon>
+          </i-input>
         </div>
       </div>
+    </div>
+
+    <div class="box">
+      <i-button type="primary" v-on:click="userLogin()">登录</i-button>
+      <i-button type="ghost" v-on:click="userRegister()" style="margin-left: 10px">注册</i-button>
+      <i-button type="text" v-on:click="findBackPassword()" style="margin-left: 10px">忘记密码</i-button>
     </div>
   </div>
 </template>

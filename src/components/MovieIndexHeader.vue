@@ -1,12 +1,16 @@
 <template>
-  <div class="header">
+  <Menu mode="horizontal" theme="dark" active-name="1">
     <router-link to="/">
-      <div class="header_menu">主页</div>
+      <MenuItem name="1">
+        <Icon type="ios-paper"></Icon>主页
+      </MenuItem>
     </router-link>
     <router-link to="/movieList">
-      <div class="header_menu">电影</div>
+      <MenuItem name="2">
+        <Icon type="ios-people"></Icon>电影
+      </MenuItem>
     </router-link>
-  </div>
+  </Menu>
 </template>
 
 <script>

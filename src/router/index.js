@@ -9,6 +9,7 @@ import LoginPage from '../pages/loginPage.vue'
 import RegisterPage from '../pages/registerPage.vue'
 import FindPasswordPage from '../pages/findPasswordPage.vue'
 import UserInfo from '../pages/userInfo.vue'
+import SendEmail from '../pages/sendEmail.vue'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -45,6 +46,11 @@ export default new Router({
     {
       path: '/userInfo',
       component: UserInfo
+    }
+    ,
+    {
+      path: '/sendEmail',
+      component: SendEmail
     }
   ]
 })

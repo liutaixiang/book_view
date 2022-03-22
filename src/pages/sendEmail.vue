@@ -8,11 +8,11 @@
     </div>
     <label>收件箱</label>
     <div>
-      <email-list v-for="item in receive_items" :title="item.title" :fromUser="item.fromUser" :context="item.context"></email-list>
+      <email-list v-for="item in receive_items" :key="item._id" :title="item.title" :fromUser="item.fromUser" :context="item.context"></email-list>
     </div>
     <label>发件箱</label>
     <div>
-      <email-list v-for="item in send_items" :title="item.title" :fromUser="item.fromUser" :context="item.context"></email-list>
+      <email-list v-for="item in send_items" :key="item._id" :title="item.title" :fromUser="item.fromUser" :context="item.context"></email-list>
     </div>
     <send-talk-box></send-talk-box>
     <common-footer></common-footer>
@@ -45,12 +45,12 @@ export default {
     let send_data = {
       token: localStorage.token,
       user_id: userId,
-      receive: 0
+      receive: 1
     }
     let receive_data = {
       token: localStorage.token,
       user_id: userId,
-      receive: 1
+      receive: '0'
     }
     if (userId) {
       this.$http.post('http://localhost:3000/users/showEmail', send_data).then((data) => {
